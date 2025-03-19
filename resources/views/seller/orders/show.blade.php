@@ -7,8 +7,7 @@
   <h1 class="h2">Order #{{ $order->order_number }}</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
       <a href="{{ route('seller.orders.index') }}" class="btn btn-sm btn-secondary">
-          <i class="fas fa-arrow-left"></i> Back to Orders  }}" class="btn btn-sm btn-secondary">
-          <i class="fas fa-arrow-left"></i> Back to Orders
+          <i class="fas fa-arrow-left" class="btn btn-sm btn-secondary"></i> Back to Orders
       </a>
   </div>
 </div>

@@ -72,28 +72,33 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 
 // Admin routes
-Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     
-    // Users management
-    Route::resource('users', UserController::class);
+    // User Management
+    Route::resource('users', AdminUserController::class);
     
-    // Canteens management
+    // Canteen Management
     Route::resource('canteens', AdminCanteenController::class);
     
-    // Menus management
+    // Menu Management
     Route::resource('menus', AdminMenuController::class);
     
-    // Orders management
-    Route::resource('orders', AdminOrderController::class);
+    // Category Management
+    Route::resource('categories', AdminCategoryController::class);
     
-    // Categories management
-    Route::resource('categories', CategoryController::class);
+    // Order Management
+    Route::resource('orders', AdminOrderController::class)->only(['index', 'show']);
+    Route::patch('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.update-status');
+    Route::patch('/orders/{order}/payment-status', [AdminOrderController::class, 'updatePaymentStatus'])->name('orders.update-payment-status');
     
     // Settings
-    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
-    Route::get('/settings/system-info', [SettingController::class, 'systemInfo'])->name('settings.system-info');
-});
+    Route::get('/settings', [AdminSettingController::class, 'index'])->name('settings.index');
+    Route::post('/settings', [AdminSettingController::class, 'index'])->name('settings.index');
+    Route::post('/settings', [AdminSettingController::class, 'update'])->name('settings.update');
+    Route::post('/settings/clear-cache', [AdminSettingController::class, 'clearCache'])->name('settings.clear-cache');
+    Route::get('/settings/system-info', [AdminSettingController::class, 'systemInfo'])->name('settings.system-info');
+    });
 
 // Seller routes
 Route::prefix('seller')->name('seller.')->middleware(['auth', 'seller'])->group(function () {
@@ -119,7 +124,7 @@ Route::prefix('seller')->name('seller.')->middleware(['auth', 'seller'])->group(
     Route::get('/reports/menu-performance', [SellerReportController::class, 'menuPerformance'])->name('reports.menu-performance');
     Route::get('/reports/export-sales', [SellerReportController::class, 'exportSales'])->name('reports.export-sales');
     });
-    
+
 
 // Buyer routes
 Route::prefix('buyer')->middleware(['auth', 'buyer'])->name('buyer.')->group(function () {

@@ -27,11 +27,6 @@
                           <i class="fas fa-heart"></i> Favorities
                       </a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link {{ request()->routeIs('buyer.profile.*') ? 'active' : '' }}" href="{{ route('buyer.profile.index') }}">
-                          <i class="fas fa-user"></i> {{ __('general.profile') }}
-                      </a>
-                  </li>
               </ul>
           </div>
       </div>
