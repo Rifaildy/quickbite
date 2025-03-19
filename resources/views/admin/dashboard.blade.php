@@ -20,7 +20,7 @@
                </div>
            </div>
            <div class="card-footer d-flex align-items-center justify-content-between">
-               <a href="{{ route('admin.users.index') }}" class="text-white text-decoration-none">{{ __('general.view_details') }}</a>
+               <a href="{{ route('admin.users.index') }}" class="text-black text-decoration-none">{{ __('View Details') }}</a>
                <i class="fas fa-angle-right"></i>
            </div>
        </div>
@@ -37,7 +37,7 @@
                </div>
            </div>
            <div class="card-footer d-flex align-items-center justify-content-between">
-               <a href="#" class="text-white text-decoration-none">{{ __('general.view_details') }}</a>
+               <a href="#" class="text-black text-decoration-none">{{ __('View Details') }}</a>
                <i class="fas fa-angle-right"></i>
            </div>
        </div>
@@ -54,7 +54,7 @@
                </div>
            </div>
            <div class="card-footer d-flex align-items-center justify-content-between">
-               <a href="#" class="text-white text-decoration-none">{{ __('general.view_details') }}</a>
+               <a href="#" class="text-black text-decoration-none">{{ __('View Details') }}</a>
                <i class="fas fa-angle-right"></i>
            </div>
        </div>
@@ -71,7 +71,7 @@
                </div>
            </div>
            <div class="card-footer d-flex align-items-center justify-content-between">
-               <a href="#" class="text-white text-decoration-none">{{ __('general.view_details') }}</a>
+               <a href="#" class="text-black text-decoration-none">{{ __('View Details') }}</a>
                <i class="fas fa-angle-right"></i>
            </div>
        </div>
